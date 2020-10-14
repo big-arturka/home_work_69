@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <form method="post">
+        {% csrf_token %}
+        <label>
+            Введите число "А": <br>
+            <input id="A" type="text" class="input">
+        </label>
+        <br>
+
+        <label>
+            Введите число "Б": <br>
+            <input id="B" type="text" class="input">
+        </label>
+        <br>
+        <a type="submit" href="{% url 'api:add' %}" data-target="add" class="btn">Сложить</a>
+        <a type="submit" href="{% url 'api:sub' %}" data-target="sub" class="btn">Вычесть</a>
+        <a type="submit" href="{% url 'api:mul' %}" data-target="mul" class="btn">Умножить</a>
+        <a type="submit" href="{% url 'api:div' %}" data-target="div" class="btn">Разделить</a>
+    </form>
+
+    <div class="result"></div>
+
+
+    <script type="application/javascript" src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
