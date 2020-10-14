@@ -7,17 +7,16 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-
+<div class="container">
     <form method="post">
         {% csrf_token %}
         <label>
-            Введите число "А": <br>
+            Число "А":
             <input id="A" type="text" class="input">
         </label>
-        <br>
 
         <label>
-            Введите число "Б": <br>
+            Число "Б":
             <input id="B" type="text" class="input">
         </label>
         <br>
@@ -26,9 +25,8 @@
         <a type="submit" href="{% url 'api:mul' %}" data-target="mul" class="btn">Умножить</a>
         <a type="submit" href="{% url 'api:div' %}" data-target="div" class="btn">Разделить</a>
     </form>
-
     <div class="result"></div>
-
+</div>
 
     <script type="application/javascript" src="{% static 'js/main.js' %}"></script>
 </body>
