@@ -51,7 +51,17 @@ async function calc() {
         }).then(response => response.json())
 
         let div = document.getElementsByClassName('result')[0];
-        div.innerText = answer.result
+
+        if(answer.result)
+            {
+                div.className = 'result ok'
+                div.innerText = answer.result
+            }
+        else
+            {
+                div.className = 'result bad'
+                div.innerText = answer.error
+            }
     }
 
     let buttons = document.getElementsByClassName('btn');

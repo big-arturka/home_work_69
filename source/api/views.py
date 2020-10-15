@@ -4,45 +4,40 @@ from django.http import JsonResponse
 
 
 def add_view(request, *args, **kwargs):
-    ans = None
     if request.body:
         data = json.loads(request.body)
-        ans = int(data['A']) + int(data['B'])
-    answer = {
-        'result': str(ans)
-    }
-    return JsonResponse(answer)
+        try:
+            answer = float(data['A']) + float(data['B'])
+        except Exception as e:
+            return JsonResponse({'error': str(e)})
+        return JsonResponse({'result': str(answer)})
 
 
 def subtract_view(request, *args, **kwargs):
-    ans = None
     if request.body:
         data = json.loads(request.body)
-        ans = int(data['A']) - int(data['B'])
-    answer = {
-        'result': str(ans)
-    }
-    return JsonResponse(answer)
+        try:
+            answer = float(data['A']) - float(data['B'])
+        except Exception as e:
+            return JsonResponse({'error': str(e)})
+        return JsonResponse({'result': str(answer)})
 
 
 def multiply_view(request, *args, **kwargs):
-    ans = None
     if request.body:
         data = json.loads(request.body)
-        ans = int(data['A']) * int(data['B'])
-    answer = {
-        'result': str(ans)
-    }
-    return JsonResponse(answer)
+        try:
+            answer = float(data['A']) * float(data['B'])
+        except Exception as e:
+            return JsonResponse({'error': str(e)})
+        return JsonResponse({'result': str(answer)})
 
 
 def divide_view(request, *args, **kwargs):
-    ans = None
     if request.body:
         data = json.loads(request.body)
-        ans = int(data['A']) / int(data['B'])
-    answer = {
-        'result': str(ans)
-    }
-    return JsonResponse(answer)
-
+        try:
+            answer = float(data['A']) / float(data['B'])
+        except Exception as e:
+            return JsonResponse({'error': str(e)})
+        return JsonResponse({'result': str(answer)})
